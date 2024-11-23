@@ -158,71 +158,71 @@ const EnteColorScheme darkScheme = EnteColorScheme(
 );
 
 // Background Colors
-const Color backgroundBaseLight = Color.fromRGBO(255, 255, 255, 1);
-const Color backgroundElevatedLight = Color.fromRGBO(255, 255, 255, 1);
-const Color backgroundElevated2Light = Color.fromRGBO(251, 251, 251, 1);
+const Color backgroundBaseLight = Color.fromRGBO(248, 240, 255, 1); // Light Purple
+const Color backgroundElevatedLight = Color.fromRGBO(248, 240, 255, 1);
+const Color backgroundElevated2Light = Color.fromRGBO(246, 238, 253, 1);
 
-const Color backgroundBaseDark = Color.fromRGBO(0, 0, 0, 1);
-const Color backgroundElevatedDark = Color.fromRGBO(27, 27, 27, 1);
-const Color backgroundElevated2Dark = Color.fromRGBO(37, 37, 37, 1);
+const Color backgroundBaseDark = Color.fromRGBO(15, 3, 39, 1); // Darker Blue-Purple
+const Color backgroundElevatedDark = Color.fromRGBO(21, 7, 47, 1);
+const Color backgroundElevated2Dark = Color.fromRGBO(27, 11, 55, 1);
 
 // Backdrop Colors
-const Color backdropBaseLight = Color.fromRGBO(255, 255, 255, 0.92);
-const Color backdropMutedLight = Color.fromRGBO(255, 255, 255, 0.75);
-const Color backdropFaintLight = Color.fromRGBO(255, 255, 255, 0.30);
+const Color backdropBaseLight = Color.fromRGBO(248, 240, 255, 0.92);
+const Color backdropMutedLight = Color.fromRGBO(248, 240, 255, 0.75);
+const Color backdropFaintLight = Color.fromRGBO(248, 240, 255, 0.30);
 
-const Color backdropBaseDark = Color.fromRGBO(0, 0, 0, 0.90);
-const Color backdropMutedDark = Color.fromRGBO(0, 0, 0, 0.65);
-const Color backdropFaintDark = Color.fromRGBO(0, 0, 0, 0.20);
+const Color backdropBaseDark = Color.fromRGBO(15, 3, 39, 0.90);
+const Color backdropMutedDark = Color.fromRGBO(15, 3, 39, 0.65);
+const Color backdropFaintDark = Color.fromRGBO(15, 3, 39, 0.20);
 
 // Text Colors
-const Color textBaseLight = Color.fromRGBO(0, 0, 0, 1);
-const Color textMutedLight = Color.fromRGBO(0, 0, 0, 0.6);
-const Color textFaintLight = Color.fromRGBO(0, 0, 0, 0.5);
-const Color blurTextBaseLight = Color.fromRGBO(0, 0, 0, 0.65);
+const Color textBaseLight = Color.fromRGBO(104, 24, 165, 1); // Purple
+const Color textMutedLight = Color.fromRGBO(104, 24, 165, 0.6);
+const Color textFaintLight = Color.fromRGBO(104, 24, 165, 0.5);
+const Color blurTextBaseLight = Color.fromRGBO(104, 24, 165, 0.65);
 
-const Color textBaseDark = Color.fromRGBO(255, 255, 255, 1);
-const Color textMutedDark = Color.fromRGBO(255, 255, 255, 0.7);
-const Color textFaintDark = Color.fromRGBO(255, 255, 255, 0.5);
-const Color blurTextBaseDark = Color.fromRGBO(255, 255, 255, 0.95);
+const Color textBaseDark = Color.fromRGBO(224, 160, 255, 1); // Light Purple
+const Color textMutedDark = Color.fromRGBO(224, 160, 255, 0.7);
+const Color textFaintDark = Color.fromRGBO(224, 160, 255, 0.5);
+const Color blurTextBaseDark = Color.fromRGBO(224, 160, 255, 0.95);
 
 // Fill Colors
-const Color fillBaseLight = Color.fromRGBO(0, 0, 0, 1);
-const Color fillBasePressedLight = Color.fromRGBO(0, 0, 0, 0.87);
-const Color fillStrongLight = Color.fromRGBO(0, 0, 0, 0.24);
-const Color fillMutedLight = Color.fromRGBO(0, 0, 0, 0.12);
-const Color fillFaintLight = Color.fromRGBO(0, 0, 0, 0.04);
-const Color fillFaintPressedLight = Color.fromRGBO(0, 0, 0, 0.08);
-const Color fillBaseGreyLight = Color.fromRGBO(242, 242, 242, 1);
+const Color fillBaseLight = Color.fromRGBO(104, 24, 165, 1); // Purple
+const Color fillBasePressedLight = Color.fromRGBO(104, 24, 165, 0.87);
+const Color fillStrongLight = Color.fromRGBO(104, 24, 165, 0.24);
+const Color fillMutedLight = Color.fromRGBO(104, 24, 165, 0.12);
+const Color fillFaintLight = Color.fromRGBO(104, 24, 165, 0.04);
+const Color fillFaintPressedLight = Color.fromRGBO(104, 24, 165, 0.08);
+const Color fillBaseGreyLight = Color.fromRGBO(242, 242, 242, 1); // Keep this as it's a neutral grey
 
-const Color fillBaseDark = Color.fromRGBO(255, 255, 255, 1);
-const Color fillBasePressedDark = Color.fromRGBO(255, 255, 255, 0.9);
-const Color fillStrongDark = Color.fromRGBO(255, 255, 255, 0.32);
-const Color fillMutedDark = Color.fromRGBO(255, 255, 255, 0.16);
-const Color fillFaintDark = Color.fromRGBO(255, 255, 255, 0.12);
-const Color fillFaintPressedDark = Color.fromRGBO(255, 255, 255, 0.06);
+const Color fillBaseDark = Color.fromRGBO(104, 24, 165, 1); // Light Purple
+const Color fillBasePressedDark = Color.fromRGBO(224, 160, 255, 0.9);
+const Color fillStrongDark = Color.fromRGBO(224, 160, 255, 0.32);
+const Color fillMutedDark = Color.fromRGBO(224, 160, 255, 0.16);
+const Color fillFaintDark = Color.fromRGBO(224, 160, 255, 0.12);
+const Color fillFaintPressedDark = Color.fromRGBO(224, 160, 255, 0.06);
 const Color fillBaseGreyDark = Color.fromRGBO(66, 66, 66, 1);
 
 // Stroke Colors
-const Color strokeBaseLight = Color.fromRGBO(0, 0, 0, 1);
-const Color strokeMutedLight = Color.fromRGBO(0, 0, 0, 0.24);
-const Color strokeFaintLight = Color.fromRGBO(0, 0, 0, 0.12);
-const Color strokeFainterLight = Color.fromRGBO(0, 0, 0, 0.06);
-const Color blurStrokeBaseLight = Color.fromRGBO(0, 0, 0, 0.65);
-const Color blurStrokeFaintLight = Color.fromRGBO(0, 0, 0, 0.08);
-const Color blurStrokePressedLight = Color.fromRGBO(0, 0, 0, 0.50);
+const Color strokeBaseLight = Color.fromRGBO(104, 24, 165, 1); // Purple
+const Color strokeMutedLight = Color.fromRGBO(104, 24, 165, 0.24);
+const Color strokeFaintLight = Color.fromRGBO(104, 24, 165, 0.12);
+const Color strokeFainterLight = Color.fromRGBO(104, 24, 165, 0.06);
+const Color blurStrokeBaseLight = Color.fromRGBO(104, 24, 165, 0.65);
+const Color blurStrokeFaintLight = Color.fromRGBO(104, 24, 165, 0.08);
+const Color blurStrokePressedLight = Color.fromRGBO(104, 24, 165, 0.50);
 
-const Color strokeBaseDark = Color.fromRGBO(255, 255, 255, 1);
-const Color strokeMutedDark = Color.fromRGBO(255, 255, 255, 0.24);
-const Color strokeFaintDark = Color.fromRGBO(255, 255, 255, 0.16);
-const Color strokeFainterDark = Color.fromRGBO(255, 255, 255, 0.08);
-const Color blurStrokeBaseDark = Color.fromRGBO(255, 255, 255, 0.90);
-const Color blurStrokeFaintDark = Color.fromRGBO(255, 255, 255, 0.06);
-const Color blurStrokePressedDark = Color.fromRGBO(255, 255, 255, 0.50);
+const Color strokeBaseDark = Color.fromRGBO(224, 160, 255, 1); // Light Purple
+const Color strokeMutedDark = Color.fromRGBO(224, 160, 255, 0.24);
+const Color strokeFaintDark = Color.fromRGBO(224, 160, 255, 0.16);
+const Color strokeFainterDark = Color.fromRGBO(224, 160, 255, 0.08);
+const Color blurStrokeBaseDark = Color.fromRGBO(224, 160, 255, 0.90);
+const Color blurStrokeFaintDark = Color.fromRGBO(224, 160, 255, 0.06);
+const Color blurStrokePressedDark = Color.fromRGBO(224, 160, 255, 0.50);
 
 // Other colors
-const Color tabIconLight = Color.fromRGBO(0, 0, 0, 0.85);
-const Color tabIconDark = Color.fromRGBO(255, 255, 255, 0.80);
+const Color tabIconLight = Color.fromRGBO(104, 24, 165, 0.85); // Purple
+const Color tabIconDark = Color.fromRGBO(224, 160, 255, 0.80);
 
 // Fixed Colors
 
@@ -230,10 +230,10 @@ const Color fixedStrokeMutedWhite = Color.fromRGBO(255, 255, 255, 0.50);
 const Color strokeSolidMutedLight = Color.fromRGBO(147, 147, 147, 1);
 const Color strokeSolidFaintLight = Color.fromRGBO(221, 221, 221, 1);
 
-const Color _primary700 = Color.fromRGBO(0, 179, 60, 1);
-const Color _primary500 = Color.fromRGBO(29, 185, 84, 1);
-const Color _primary400 = Color.fromRGBO(38, 203, 95, 1);
-const Color _primary300 = Color.fromRGBO(1, 222, 77, 1);
+const Color _primary700 = Color.fromRGBO(104, 24, 165, 1); // Dark Purple
+const Color _primary500 = Color.fromRGBO(135, 45, 206, 1); // Medium Purple
+const Color _primary400 = Color.fromRGBO(166, 86, 247, 1); // Light Purple
+const Color _primary300 = Color.fromRGBO(197, 127, 248, 1); // Very Light Purple
 
 const Color _warning700 = Color.fromRGBO(234, 63, 63, 1);
 const Color _warning500 = Color.fromRGBO(255, 101, 101, 1);

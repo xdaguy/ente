@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:photos/core/event_bus.dart';
@@ -96,8 +97,7 @@ class _HomeBottomNavigationBarState extends State<HomeBottomNavigationBar> {
                   children: [
                     GNav(
                       curve: Curves.easeOutExpo,
-                      backgroundColor:
-                          getEnteColorScheme(context).backgroundElevated2,
+                      backgroundColor: const Color.fromRGBO(22,26,29, 0.6),
                       mainAxisAlignment: MainAxisAlignment.center,
                       iconSize: 24,
                       padding: const EdgeInsets.fromLTRB(16, 6, 16, 6),
@@ -106,15 +106,15 @@ class _HomeBottomNavigationBarState extends State<HomeBottomNavigationBar> {
                       tabBorderRadius: 32,
                       tabBackgroundColor:
                           Theme.of(context).brightness == Brightness.light
-                              ? strokeFainterLight
-                              : strokeSolidFaintLight,
+                              ? blurStrokePressedLight.withOpacity(0.3)
+                              : blurStrokePressedLight.withOpacity(0.3),
                       haptic: false,
                       tabs: [
                         GButton(
                           margin: const EdgeInsets.fromLTRB(8, 6, 10, 6),
                           icon: Icons.home_rounded,
-                          iconColor: enteColorScheme.tabIcon,
-                          iconActiveColor: strokeBaseLight,
+                          iconColor: kDefaultIconLightColor,
+                          iconActiveColor: enteColorScheme.fillBase,
                           text: '',
                           onPressed: () {
                             _onTabChange(
@@ -126,8 +126,8 @@ class _HomeBottomNavigationBarState extends State<HomeBottomNavigationBar> {
                         GButton(
                           margin: const EdgeInsets.fromLTRB(10, 6, 10, 6),
                           icon: Icons.collections_rounded,
-                          iconColor: enteColorScheme.tabIcon,
-                          iconActiveColor: strokeBaseLight,
+                          iconColor: kDefaultIconLightColor,
+                          iconActiveColor: enteColorScheme.fillBase,
                           text: '',
                           onPressed: () {
                             _onTabChange(
@@ -140,8 +140,8 @@ class _HomeBottomNavigationBarState extends State<HomeBottomNavigationBar> {
                         GButton(
                           margin: const EdgeInsets.fromLTRB(10, 6, 8, 6),
                           icon: Icons.people_outlined,
-                          iconColor: enteColorScheme.tabIcon,
-                          iconActiveColor: strokeBaseLight,
+                          iconColor: kDefaultIconLightColor,
+                          iconActiveColor: enteColorScheme.fillBase,
                           text: '',
                           onPressed: () {
                             _onTabChange(
@@ -154,8 +154,8 @@ class _HomeBottomNavigationBarState extends State<HomeBottomNavigationBar> {
                         GButton(
                           margin: const EdgeInsets.fromLTRB(10, 6, 8, 6),
                           icon: Icons.search_outlined,
-                          iconColor: enteColorScheme.tabIcon,
-                          iconActiveColor: strokeBaseLight,
+                          iconColor: kDefaultIconLightColor,
+                          iconActiveColor: enteColorScheme.fillBase,
                           text: '',
                           onPressed: () {
                             _onTabChange(
@@ -168,6 +168,18 @@ class _HomeBottomNavigationBarState extends State<HomeBottomNavigationBar> {
                       ],
                       selectedIndex: currentTabIndex,
                       onTabChange: _onTabChange,
+                    ),
+                    Positioned(
+                      top: 0.0,
+                      left: 0.0,
+                      right: 0.0,
+                      bottom: 0.0, // Ensure it covers the entire area
+                      child: Container(
+                        color: Colors.black.withOpacity(1),
+                        child: BackdropFilter(
+                          filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+                        ),
+                      ),
                     ),
                   ],
                 ),

@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:photos/models/execution_states.dart';
@@ -158,56 +160,79 @@ class _MenuItemWidgetState extends State<MenuItemWidget> {
     final circularRadius = Radius.circular(borderRadius);
     final isExpanded = widget.expandableController?.value;
     final bottomBorderRadius =
-        (isExpanded != null && isExpanded) || widget.isBottomBorderRadiusRemoved
-            ? const Radius.circular(0)
-            : circularRadius;
+    (isExpanded != null && isExpanded) || widget.isBottomBorderRadiusRemoved
+        ? const Radius.circular(0)
+        : circularRadius;
     final topBorderRadius = widget.isTopBorderRadiusRemoved
         ? const Radius.circular(0)
         : circularRadius;
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 20),
-      width: double.infinity,
-      padding: const EdgeInsets.only(left: 16, right: 12),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.only(
-          topLeft: topBorderRadius,
-          topRight: topBorderRadius,
-          bottomLeft: bottomBorderRadius,
-          bottomRight: bottomBorderRadius,
-        ),
-        color: menuItemColor,
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          widget.alignCaptionedTextToLeft && widget.leadingIcon == null
-              ? const SizedBox.shrink()
-              : LeadingWidget(
-                  leadingIconSize: widget.leadingIconSize,
-                  leadingIcon: widget.leadingIcon,
-                  leadingIconColor: widget.leadingIconColor,
-                  leadingIconWidget: widget.leadingIconWidget,
-                ),
-          widget.captionedTextWidget,
-          if (widget.expandableController != null)
-            ExpansionTrailingIcon(
-              isExpanded: isExpanded!,
-              trailingIcon: widget.trailingIcon,
-              trailingIconColor: widget.trailingIconColor,
-            )
-          else
-            TrailingWidget(
-              executionStateNotifier: executionStateNotifier,
-              trailingIcon: widget.trailingIcon,
-              trailingIconColor: widget.trailingIconColor,
-              trailingWidget: widget.trailingWidget,
-              trailingIconIsMuted: widget.trailingIconIsMuted,
-              trailingExtraMargin: widget.trailingExtraMargin,
-              showExecutionStates: widget.surfaceExecutionStates,
-              key: ValueKey(widget.trailingIcon.hashCode),
+
+    return Stack(
+      children: [
+        // Blurred Background clipped to the desired shape
+        ClipRRect(
+          borderRadius: BorderRadius.only(
+            topLeft: topBorderRadius,
+            topRight: topBorderRadius,
+            bottomLeft: bottomBorderRadius,
+            bottomRight: bottomBorderRadius,
+          ),
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+            child: Container(
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(1),   // Adjust opacity as needed
+              ),
             ),
-        ],
-      ),
+          ),
+        ),
+        // Your actual menu item content
+        AnimatedContainer(
+          duration: const Duration(milliseconds: 20),
+          width: double.infinity,
+          padding: const EdgeInsets.only(left: 16, right: 12),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topLeft: topBorderRadius,
+              topRight: topBorderRadius,
+              bottomLeft: bottomBorderRadius,
+              bottomRight: bottomBorderRadius,
+            ),
+            color: menuItemColor,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              widget.alignCaptionedTextToLeft && widget.leadingIcon == null
+                  ? const SizedBox.shrink()
+                  : LeadingWidget(
+                leadingIconSize: widget.leadingIconSize,
+                leadingIcon: widget.leadingIcon,
+                leadingIconColor: widget.leadingIconColor,
+                leadingIconWidget: widget.leadingIconWidget,
+              ),
+              widget.captionedTextWidget,
+              if (widget.expandableController != null)
+                ExpansionTrailingIcon(
+                  isExpanded: isExpanded!,
+                  trailingIcon: widget.trailingIcon,
+                  trailingIconColor: widget.trailingIconColor,
+                )
+              else
+                TrailingWidget(
+                  executionStateNotifier: executionStateNotifier,
+                  trailingIcon: widget.trailingIcon,
+                  trailingIconColor: widget.trailingIconColor,
+                  trailingWidget: widget.trailingWidget,
+                  trailingIconIsMuted: widget.trailingIconIsMuted,
+                  trailingExtraMargin: widget.trailingExtraMargin,
+                  showExecutionStates: widget.surfaceExecutionStates,
+                  key: ValueKey(widget.trailingIcon.hashCode),
+                ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 

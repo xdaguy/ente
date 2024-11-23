@@ -1,4 +1,7 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:photos/core/configuration.dart';
 import 'package:photos/core/event_bus.dart';
 import 'package:photos/db/files_db.dart';
@@ -11,6 +14,7 @@ import 'package:photos/models/gallery_type.dart';
 import 'package:photos/models/selected_files.dart';
 import 'package:photos/services/collections_service.dart';
 import "package:photos/services/filter/db_filters.dart";
+import "package:photos/theme/ente_theme.dart";
 import 'package:photos/ui/viewer/actions/file_selection_overlay_bar.dart';
 import 'package:photos/ui/viewer/gallery/gallery.dart';
 import "package:photos/ui/viewer/gallery/state/gallery_files_inherited_widget.dart";
@@ -30,14 +34,19 @@ class HomeGalleryWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor: Colors.blue, // Replace with your desired color
+    ),);
+
+    final enteColorScheme = getEnteColorScheme(context);
     final double bottomSafeArea = MediaQuery.paddingOf(context).bottom;
     final gallery = Gallery(
       asyncLoader: (creationStartTime, creationEndTime, {limit, asc}) async {
         final ownerID = Configuration.instance.getUserID();
         final hasSelectedAllForBackup =
-            Configuration.instance.hasSelectedAllFoldersForBackup();
+        Configuration.instance.hasSelectedAllFoldersForBackup();
         final collectionsToHide =
-            CollectionsService.instance.archivedOrHiddenCollectionIds();
+        CollectionsService.instance.archivedOrHiddenCollectionIds();
         FileLoadResult result;
         final DBFilterOptions filterOptions = DBFilterOptions(
           hideIgnoredForUpload: true,
@@ -82,21 +91,32 @@ class HomeGalleryWidget extends StatelessWidget {
       header: header,
       footer: footer,
       // scrollSafe area -> SafeArea + Preserver more + Nav Bar buttons
-      scrollBottomSafeArea: bottomSafeArea + 180,
+      scrollBottomSafeArea: bottomSafeArea + 120,
       reloadDebounceTime: const Duration(seconds: 2),
       reloadDebounceExecutionInterval: const Duration(seconds: 5),
     );
-    return GalleryFilesState(
-      child: SelectionState(
-        selectedFiles: selectedFiles,
-        child: Stack(
-          alignment: Alignment.bottomCenter,
-          children: [
-            gallery,
-            FileSelectionOverlayBar(GalleryType.homepage, selectedFiles),
-          ],
+    return Stack(
+      children: [
+        // Blurred background
+        BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 20.0, sigmaY: 20.0),
+          child: Container(
+            color: enteColorScheme.backgroundBase.withOpacity(1),// Adjust color and opacity as needed
+          ),
         ),
-      ),
+        GalleryFilesState(
+          child: SelectionState(
+            selectedFiles: selectedFiles,
+            child: Stack(
+              alignment: Alignment.bottomCenter,
+              children: [
+                gallery,
+                FileSelectionOverlayBar(GalleryType.homepage, selectedFiles),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
