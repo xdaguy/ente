@@ -29,7 +29,7 @@ class _StorageCardWidgetState extends State<StorageCardWidget> {
   void initState() {
     super.initState();
     _background = const Image(
-      image: AssetImage("assets/storage_card_background.png"),
+      image: AssetImage("assets/purple_blur.png"),
       fit: BoxFit.fill,
     );
   }
